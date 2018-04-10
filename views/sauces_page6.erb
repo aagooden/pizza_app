@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+        <h3>Sauces</h3>
+        <form method="post" action="/on-to-extra-toppings" required>
+    <% sauces.each do |key, value| %>
+        <input type="radio" name="sauces" value='<%= value %>'>
+            <div>
+                <% if key == "Alfredo" %>
+                    <%= "the #{key} is #{value} dollars" %>
+                    <img src="/img/alfredoSauce.jpg">
+                <% elsif key == "Bbq" %>
+                    <%= "the #{key} is #{value} dollars" %>
+                    <img src="/img/bbq.jpg">
+                <% elsif key == "Tomato" %>
+                    <%= "the #{key} is #{value} dollars" %>
+                    <img src="/img/tomatoSauce.jpg">
+                <% else %>
+                    <%= "the #{key} is #{value} dollars" %>
+                    <img src="/img/marinara.jpg">
+                <% end %>
+            </div>
+        <br>
+        <% end %>
+
+    <input type="submit" value="Next to Extra Toppings">
+    </form>
+
+    <br><br>
+    <a href="/special-toppings">Go back to the Special Toppings page</a>
+</body>
+</html>

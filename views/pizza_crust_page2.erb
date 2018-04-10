@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome!</title>
+</head>
+<body>
+	<form method="post" action="/on-to-meats">
+		<h3>Crust Sizes</h3>
+        	<% crust.each do |key, value| %>
+     			<input type="radio" name="crust" value='<%= value %>' required>
+     				<div>
+     					<% if key == "Pan crust" %>
+                			<%= "the #{key} is #{value} dollars" %>
+                			<img src="/img/PanCrust.jpg">
+                		<% elsif key == "Stuffed crust" %>
+                			<%= "the #{key} is #{value} dollars" %>
+                			<img src="/img/cheeseStuffedCrust.jpg">
+                		<% else %>
+                			<%= "the #{key} is #{value} dollars" %>
+                			<img src="/img/baconCheeseStuffedCrust.jpg">
+                		<% end %>
+                	</div>
+                <br>
+        	    <% end %>
+		
+    	<input type="submit" value="On to meats">
+	</form>
+	<br><br>
+    <a href="/size">Go back to the Pizza Size page</a>
+</body>
+</html>

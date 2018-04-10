@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+        <h3>Veggies</h3>
+        <form method="post" action="/on-to-special-toppings">
+    		<% veggies.each do |key, value| %>
+	      		<input type="radio" name="veggies" value='<%= value %>'>
+                <div>
+                    <% if key == "Tomato" %>
+                        <%= "#{key} is #{value} dollars" %>
+                        <img src="/img/tomatoes.jpg">
+                    <% elsif key == "Pineapple" %>
+                        <%= "#{key} is #{value} dollars" %>
+                        <img src="/img/pineapple.jpg">
+                    <% else %>
+                        <%= "#{key} is #{value} dollars" %>
+                        <img src="/img/spinach.jpg">
+                    <% end %>
+                    </div>
+
+	        	<% end %>
+
+    <input type="submit" value="Next to Special Toppings">
+    </form>
+
+    <br><br>
+    <a href="/meats">Go back to the Meats page</a>
+</body>
+</html>

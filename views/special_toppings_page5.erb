@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+    <h3>Special Toppings</h3>
+    <form method="post" action="/on-to-sauces">
+    	<% special_toppings.each do |key, value| %>
+	   		<input type="radio" name="special_toppings" value='<%= value %>'>
+                <div>
+                    <% if key == "Bbq sauce" %>
+                        <%= "the #{key} is #{value} dollars" %>
+                        <img src="/img/bbq.jpg">
+                    <% else %>
+                        <%= "the #{key} is #{value} dollars" %>
+                        <img src="/img/buffaloSauce.jpg">
+                    <% end %>
+                </div>
+        <br>
+	    <% end %>
+    	
+    <input type="submit" value="Next to the sauces">
+    </form>
+    <br><br>
+    <a href="/veggies">Go back to the Veggies page</a>
+</body>
+</html>

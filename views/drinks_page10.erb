@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+    <h3>Drinks</h3>
+    <form method="post" action="/on-to-pasta">
+	    <% drinks.each do |key, value| %>
+	         <input type="radio" name="drinks" value='<%= value %>'>
+		        <div>
+		            <% if key == "Water" %>
+                			<%= "#{key} is #{value} dollars" %>
+                			<img src="/img/water.jpg">
+                	<% elsif key == "Coca-Cola" %>
+                			<%= "#{key} is #{value} dollars" %>
+                			<img src="/img/coke.jpg">
+                	<% elsif key == "Powerade" %>
+                			<%= "#{key} is #{value} dollars" %>
+                			<img src="/img/powerade.jpg">
+                	<% elsif key == "Tea" %>
+                			<%= "#{key} is #{value} dollars" %>
+                			<img src="/img/tea.jpg">
+                	<% else %>
+                			<%= "#{key} is #{value} dollars" %>
+                			<img src="/img/sprite.jpg">
+                		<% end %>
+		        </div>
+		        <br><br>
+	    <% end %>
+
+    <input type="submit" value="Next to Pasta">
+    </form>
+
+    <br><br>
+    <a href="/wings">Go back to the Wings page</a>
+</body>
+</html>

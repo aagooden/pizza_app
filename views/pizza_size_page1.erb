@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome!</title>
+</head>
+<body>
+
+	<h1>Scott's Pizza Shack Menu</h1>
+	<form method="post" action="/on-to-crust">
+
+		<h3>Pizza Sizes</h3>
+	    <% size.each do |key, value| %>
+    		<input type="radio" name="size" value='<%= value %>' required> 
+                <% if key == "XL" %>
+                    <div>
+        		      <%= "an #{key} size pizza starts at #{value} dollars" %>
+                      <img src="/img/crust.jpg">
+                    </div>
+        		<% else %>
+                    <div>
+        			 <%= "a #{key} size pizza starts at #{value} dollars" %>
+                     <img src="/img/crust.jpg">
+                    </div>
+                    <br>
+        		<% end %>
+    	<% end %>
+        <br><br>
+        <div>
+    	<input type="submit" value="next to pizza crust">
+        </div>
+	</form>
+
+    <br><br>
+    <a href="/">Go back to the Welcome page</a>
+
+</body>
+</html>

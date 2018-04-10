@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	
+    <h3>Wings</h3>
+    <form method="post" action="/on-to-drinks">
+	    <% wings.each do |key, value| %>
+	        <input type="radio" name="wings" value='<%= value %>'>
+		        <div>
+		        	<%= "#{key} wings are #{value} dollars" %>
+		        	<img src="/img/wings.png">
+		        </div>
+		        <br><br>
+	    <% end %>
+
+    <input type="submit" value="Next to Drinks">
+    </form>
+    <br><br>
+    <a href="/salad">Go back to the Salad page</a>
+</body>
+</html>

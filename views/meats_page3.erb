@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h3>Meats</h3>
+    <form method="post" action="/on-to-veggies">
+	    <% meats.each do |key, value| %>
+	    	<input type="radio" name="meats" value='<%= value %>'>
+	    		<div>
+                        <% if key == "Chicken" %>
+                            <%= "#{key} is #{value} dollars" %>
+                            <img src="/img/chickenTopping.jpg">
+                        <% elsif key == "Pepperoni" %>
+                            <%= "#{key} is #{value} dollars" %>
+                            <img src="/img/pepperoni.jpg">
+                        <% elsif key == "Sausage"%>
+                            <%= "#{key} is #{value} dollars" %>
+                            <img src="/img/sausage.jpg">
+                        <% else %>
+                            <%= "#{key} is #{value} dollars" %>
+                            <img src="/img/bacon.jpg">
+                        <% end %>
+                    </div>
+	   	<% end %>
+
+    <input type="submit" value="Next to veggies">
+    </form>
+    <br><br>
+    <a href="/crust">Go back to the Pizza Crust page</a>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+    <h3>Pasta</h3>
+    <form method="post" action="/on-to-almost-final">
+	    <% pasta.each do |key, value| %>
+	        <input type="radio" name="pasta" value='<%= value %>'>
+		        <div>
+		            <% if key == "Chicken alfredo" %>
+                		<%= "#{key} is #{value} dollars" %>
+                		<img src="/img/chickenAlfredo.jpg">
+                	<% else %>
+                		<%= "#{key} is #{value} dollars" %>
+                		<img src="/img/lasagna.jpg">
+                	<% end %>
+		        </div>
+		        <br><br>
+	    <% end %>
+	    
+    <input type="submit" value="Finalize">
+    </form>
+    <br><br>
+    <a href="/drinks">Go back to the Drinks page</a>
+</body>
+</html>

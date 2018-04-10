@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <h3>Extra Toppings</h3>
+    <form method="post" action="/on-to-salad">
+		<% extra_toppings.each do |key, value| %>
+		   	<input type="radio" name="extra_toppings" value='<%= value %>'>
+			   	<div>
+		            <% if key == "Double pepperoni" %>
+                        <%= "#{key} is #{value} dollars" %>
+                        <img src="/img/pepperoni.jpg">
+                    <% elsif key == "Extra cheese" %>
+                        <%= "#{key} is #{value} dollars" %>
+                        <img src="/img/cheese.jpg">
+                    <% else %>
+                        <%= "#{key} is #{value} dollars" %>
+                        <img src="/img/chickenTopping.jpg">
+                    <% end %>
+			    </div>
+		    <% end %>
+
+    <input type="submit" value="Next to Salads">
+    </form>
+    <br><br>
+    <a href="/sauces">Go back to the Sauces page</a>
+</body>
+</html>
