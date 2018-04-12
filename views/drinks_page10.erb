@@ -11,7 +11,7 @@
 		        <div>
                     <% if key == "none" %>
                         <% "You don't want anything" %>
-		            <% if key == "Water" %>
+		            <% elsif key == "Water" %>
                 			<%= "#{key} is #{value} dollars" %>
                 			<img src="/img/water.jpg">
                 	<% elsif key == "Coca-Cola" %>
@@ -26,7 +26,7 @@
                 	<% else %>
                 			<%= "#{key} is #{value} dollars" %>
                 			<img src="/img/sprite.jpg">
-                		<% end %>
+                	<% end %>
 		        </div>
 		        <br><br>
 	    <% end %>

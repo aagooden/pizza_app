@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <script type="text/javascript" src="js/meatCheckboxChecker.js"></script>
     <title></title>
 </head>
 <body>
@@ -8,13 +9,13 @@
     <h3>Meats</h3>
     <form method="post" action="/on-to-veggies">
 	    <% meats.each do |key, value| %>
-	    	<input type="radio" name="meats" value='<%= key %>, <%= value %>' required>
 	    		<div>
+                    <input type="checkbox" name="meats[]" value='<%= key %>, <%= value %>'>
                         <% if key == "Chicken" %>
                             <%= "#{key} is #{value} dollars" %>
                             <img src="/img/chickenTopping.jpg">
-                        <% if key == "none" %>
-                            <%= "You don't want any" %> 
+                        <% elsif key == "none" %>
+                            You don't want any 
                         <% elsif key == "Pepperoni" %>
                             <%= "#{key} is #{value} dollars" %>
                             <img src="/img/pepperoni.jpg">
@@ -28,7 +29,7 @@
                     </div>
 	   	<% end %>
         <br><br>
-    <input type="submit" value="Next to veggies">
+    <input type="submit" value="Next to veggies" onclick="meatCheckboxChecker()">
     </form>
 
     <br><br>

@@ -52,11 +52,15 @@ post '/back-to-meats' do
 end
 
 post '/on-to-veggies' do
-	session[:pizza].push(params.values)
+	selected_meats = params.values.to_a.flatten
+	selected_meats.each do |meat|
+		session[:pizza].push(meat.split(', '))
+	end
 	redirect '/veggies'
 end
 
 get '/veggies' do
+	p session[:pizza]
 	erb :veggies_page4
 end
 
@@ -212,7 +216,7 @@ post '/on-to-thank-you' do
 end
 
 get '/thanks' do
-	erb :thanks.erb
+	erb :thanks
 end
 
 post '/more-pizza' do

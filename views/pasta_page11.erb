@@ -13,6 +13,8 @@
 		            <% if key == "Chicken alfredo" %>
                 		<%= "#{key} is #{value} dollars" %>
                 		<img src="/img/chickenAlfredo.jpg">
+                    <% elsif key == "none" %>
+                        <%= "You don't want any" %> 
                 	<% else %>
                 		<%= "#{key} is #{value} dollars" %>
                 		<img src="/img/lasagna.jpg">
