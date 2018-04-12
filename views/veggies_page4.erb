@@ -8,7 +8,7 @@
         <h3>Veggies</h3>
         <form method="post" action="/on-to-special-toppings">
     		<% veggies.each do |key, value| %>
-	      		<input type="radio" name="veggies" value='<%= value %>' required>
+	      		<input type="radio" name="veggies" value='<%= key %>, <%= value %>' required>
                 <div>
                     <% if key == "Tomato" %>
                         <%= "#{key} is #{value} dollars" %>

@@ -23,7 +23,6 @@ post '/on-to-crust' do
 end
 
 get '/crust' do
-	p session[:pizza]
 	erb :pizza_crust_page2
 end
 
@@ -115,11 +114,19 @@ post '/on-to-almost-final' do
 end
 
 get '/almost-final' do
+	pizza = []
+	session[:pizza]. each do |ingredients|
+		ingredients.each do |string|
+			pizza << string.split(", ") 
+		end
+	end
+	session[:pizza] = pizza
 	pizza = session[:pizza].flatten
+	pizza.map! {|s| s[/[\d.,]+/] }
 	pizza.each do |prices|
 		session[:total_price] += prices.to_i
 	end
-	p session[:total_price]
+	session[:total_price]
 	erb :almost_final_page12
 end
 
@@ -129,6 +136,15 @@ end
 
 get '/final' do
 	erb :final_page13, locals:{total_price: session[:total_price]}
+end
+
+post '/on-to-checkout' do
+	session[:total_price] += params[:delivery?].to_i
+	redirect "/checkout"
+end
+
+get '/checkout' do
+	erb :checkout, locals:{total_price: session[:total_price]}
 end
 
 get '/more-pizza' do

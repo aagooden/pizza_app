@@ -7,7 +7,7 @@
     <h3>Drinks</h3>
     <form method="post" action="/on-to-pasta">
 	    <% drinks.each do |key, value| %>
-	         <input type="radio" name="drinks" value='<%= value %>'>
+	         <input type="radio" name="drinks" value='<%= key %>, <%= value %>'>
 		        <div>
 		            <% if key == "Water" %>
                 			<%= "#{key} is #{value} dollars" %>

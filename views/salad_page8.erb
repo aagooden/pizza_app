@@ -8,7 +8,7 @@
     <h3>Salads</h3>
     <form method="post" action="/on-to-wings">
 	    <% salad.each do |key, value| %>
-	        <input type="radio" name="salad" value='<%= value %>' required>
+	        <input type="radio" name="salad" value='<%= key %>, <%= value %>' required>
                 <div>
     	            <% if key == "Caesar" %>
                         <%= "#{key} is #{value} dollars" %>

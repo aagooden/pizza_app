@@ -5,6 +5,25 @@
 </head>
 <body>
 	<h1>Time to pay up</h1>
-	<p>Your total is <%= session[:total_price] %> dollars.</p>
+	<p>Your payment is <%= session[:total_price] %> dollars currently.</p>
+	<br><br>
+	<form method="post" action="/on-to-checkout">
+		<h2>Would you like delivery?</h2>
+		<div>
+			<input type="radio" name="delivery?" value=0>No
+		</div>
+		<div>
+			<input type="radio" name="delivery?" value=5>Yes, that will be another 5 dollars
+		</div>
+		<div>
+			<input type="text" placeholder="First Name">
+			<input type="text" placeholder="Last Name">
+		</div>
+		<div>
+			<input type="text" placeholder="Address">
+			<input type="text" placeholder="State">
+		</div>
+		<input type="submit" value="Checkout">
+	</form>
 </body>
 </html>

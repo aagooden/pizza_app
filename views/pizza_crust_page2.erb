@@ -7,7 +7,7 @@
 	<form method="post" action="/on-to-meats">
 		<h3>Crust Sizes</h3>
         	<% crust.each do |key, value| %>
-     			<input type="radio" name="crust" value='<%= value %>' required>
+     			<input type="radio" name="crust" value='<%= key %>, <%= value %>' required>
      				<div>
      					<% if key == "Pan crust" %>
                 			<%= "the #{key} is #{value} dollars" %>

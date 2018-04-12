@@ -8,7 +8,7 @@
     <h3>Wings</h3>
     <form method="post" action="/on-to-drinks">
 	    <% wings.each do |key, value| %>
-	        <input type="radio" name="wings" value='<%= value %>'>
+	        <input type="radio" name="wings" value='<%= key %>, <%= value %>' required>
 		        <div>
 		        	<%= "#{key} wings are #{value} dollars" %>
 		        	<img src="/img/wings.png">
