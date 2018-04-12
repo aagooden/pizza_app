@@ -147,6 +147,14 @@ get '/checkout' do
 	erb :checkout, locals:{total_price: session[:total_price]}
 end
 
+post '/on-to-thank-you' do
+	redirect "/thanks"
+end
+
+get '/thanks' do
+	erb :thanks.erb
+end
+
 get '/more-pizza' do
 	session[:pizza].clear
 	redirect "/size"

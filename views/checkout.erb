@@ -7,18 +7,21 @@
 	<h1>Payment</h1>
 	<h2>The total is <%= session[:total_price] %></h2>
 	<h3>How would you like to pay?</h3>
-	<form>
+	<form method="post" action="/on-to-thank-you">
 		<div>
-		<input type="radio" name="payment">Credit
+			<input type="radio" name="payment">Credit
 		</div>
 		<div>
-		<input type="radio" name="payment">Debit
+			<input type="radio" name="payment">Debit
 		</div>
 		<div>
-		<input type="radio" name="payment">Cash
+			<input type="radio" name="payment">Cash
 		</div>
 		<div>
-		<input type="radio" name="payment">Bitcoin
+			<input type="radio" name="payment">Bitcoin
+		</div>
+		<div>
+			<input type="submit" value="pay">
 		</div>
 	</form>
 </body>
