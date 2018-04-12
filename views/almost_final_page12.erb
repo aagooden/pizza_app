@@ -4,13 +4,29 @@
 	<title></title>
 </head>
 <body>
-	<h2>Do you want to take things off of your current pizza or add more pizza?</h2>
+	<h2>Do you want to take things off of what you just got or add more?</h2>
 
+	<form method="post" action="/get-rid-of-these">
+		<% pizza.each do |ingredients|%>
+			<input type="checkbox" name="ingredients[]" value='<%= ingredients %>'>
+			<div>
+				<% if ingredients[0] != "none" %>
+				<%= ingredients[0] %>
+				<% else %>
+				<% end %>
+			</div>
+		<% end %>
+		<br><br>
+		<input type="submit">
+	</form>
+	<br><br>
 	<form method="post" action="/on-to-final">
 		<input type="submit" value="no, I want to buy my food now">
 	</form>
 
-	<input type="button" onclick="location.href='/more-pizza';" value="Add more?">
+    <form method="post" action="/more-pizza">
+        <input type="button" value="Add more piza?">
+    </form>
 
 </body>
 </html>

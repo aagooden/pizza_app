@@ -13,12 +13,12 @@
     		<input type="radio" name="size" value='<%= key %>, <%= value %>' required> 
                 <% if key == "XL" %>
                     <div>
-        		      <%= "an #{key} size pizza starts at #{value} dollars" %>
+        		      <%= "an #{key} pizza starts at #{value} dollars" %>
                       <img src="/img/crust.jpg">
                     </div>
         		<% else %>
                     <div>
-        			 <%= "a #{key} size pizza starts at #{value} dollars" %>
+        			 <%= "a #{key} pizza starts at #{value} dollars" %>
                      <img src="/img/crust.jpg">
                     </div>
                     <br>
@@ -31,7 +31,8 @@
 	</form>
 
     <br><br>
-    <input type="button" onclick="location.href='/';" value="Go back to Welcome page">
-
+    <form method="get" action="/">
+        <input type="button" value="Go back to Welcome page">
+    </form>
 </body>
 </html>

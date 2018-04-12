@@ -20,11 +20,13 @@
                 </div>
         <br>
 	    <% end %>
-    	
+    	<br><br>
     <input type="submit" value="Next to the sauces">
     </form>
     <br><br>
-    <input type="button" onclick="location.href='/veggies';" value="Go back to Veggies">
 
+    <form method="post" action="/back-to-veggies">
+        <input type="button" value="Go back to Veggies">
+    </form>
 </body>
 </html>
