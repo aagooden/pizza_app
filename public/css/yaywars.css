@@ -1,0 +1,36 @@
+body {
+	background-image: url(http://i0.kym-cdn.com/photos/images/original/001/006/625/a44.gif);
+	background-size: cover;
+	background-repeat: no-repeat;
+	text-align: center;
+	margin-top: 10rem;
+}
+
+.topnav a {
+ 	background-color: #000000;
+	color: #FFFFFF;
+	padding: 10px 10px;
+	font-size: 17px;
+}
+
+.header {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 100%;
+}
+
+.footer {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.scrollbar {
+	overflow:auto; 
+	height:556px;
+	width:564px;
+}
