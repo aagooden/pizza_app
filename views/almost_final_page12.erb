@@ -4,24 +4,28 @@
 	<title></title>
 </head>
 <body>
-	<h2>Do you want to take things off of what you just got or add more?</h2>
+	<h1>Do you want to take things off of what you just got or add more?</h1>
+	<br>
+	<h2>Unselect what ingredients you don't one to have on your order</h2>
 
 	<form method="post" action="/get-rid-of-these">
 		<% pizza.each do |ingredients|%>
-			<input type="checkbox" name="ingredients[]" value='<%= ingredients %>'>
+			<input type="checkbox" name="ingredients[]" value='<%= ingredients %>' checked>
 			<div>
-				<% if ingredients[0] != "none" %>
-				<%= ingredients[0] %>
+				<% if ingredients[0] == "none" %>
+				<% elsif ingredients[0] == ingredients[0].match(/crust/i) %>
+				<% elsif ingredients[0] == ingredients[0].match(/sauce/i) %>
 				<% else %>
+					<%= ingredients[0] %>
 				<% end %>
 			</div>
 		<% end %>
 		<br><br>
-		<input type="submit">
+		<input type="submit" value="click this to fix your pizza">
 	</form>
 	<br><br>
 	<form method="post" action="/on-to-final">
-		<input type="submit" value="no, I want to buy my food now">
+		<input type="submit" value="I want to buy my food now">
 	</form>
 
     <form method="post" action="/more-pizza">
