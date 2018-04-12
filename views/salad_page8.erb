@@ -8,7 +8,7 @@
     <h3>Salads</h3>
     <form method="post" action="/on-to-wings">
 	    <% salad.each do |key, value| %>
-	        <input type="radio" name="salad" value='<%= value %>'>
+	        <input type="radio" name="salad" value='<%= value %>' required>
                 <div>
     	            <% if key == "Caesar" %>
                         <%= "#{key} is #{value} dollars" %>
@@ -25,6 +25,7 @@
     </form>	
 
     <br><br>
-    <a href="/extra-toppings">Go back to the Extra Toppings page</a>
+    <input type="button" onclick="location.href='/extra-toppings';" value="Go back to Extra Toppings">
+
 </body>
 </html>

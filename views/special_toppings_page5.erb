@@ -8,7 +8,7 @@
     <h3>Special Toppings</h3>
     <form method="post" action="/on-to-sauces">
     	<% special_toppings.each do |key, value| %>
-	   		<input type="radio" name="special_toppings" value='<%= value %>'>
+	   		<input type="radio" name="special_toppings" value='<%= value %>' required>
                 <div>
                     <% if key == "Bbq sauce" %>
                         <%= "the #{key} is #{value} dollars" %>
@@ -24,6 +24,7 @@
     <input type="submit" value="Next to the sauces">
     </form>
     <br><br>
-    <a href="/veggies">Go back to the Veggies page</a>
+    <input type="button" onclick="location.href='/veggies';" value="Go back to Veggies">
+
 </body>
 </html>

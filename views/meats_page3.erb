@@ -8,7 +8,7 @@
     <h3>Meats</h3>
     <form method="post" action="/on-to-veggies">
 	    <% meats.each do |key, value| %>
-	    	<input type="radio" name="meats" value='<%= value %>'>
+	    	<input type="radio" name="meats" value='<%= value %>' required>
 	    		<div>
                         <% if key == "Chicken" %>
                             <%= "#{key} is #{value} dollars" %>
@@ -28,7 +28,9 @@
 
     <input type="submit" value="Next to veggies">
     </form>
+
     <br><br>
-    <a href="/crust">Go back to the Pizza Crust page</a>
+    <input type="button" onclick="location.href='/crust';" value="Go back to Pizza Crust">
+
 </body>
 </html>
