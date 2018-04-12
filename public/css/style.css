@@ -1,16 +1,25 @@
 body {
-	text-align: left;
+	text-align: center;
 	background-image: url("/img/background1.jpg");
 	background-size: 100% 100%;
 	background-repeat: no-repeat;
 	margin-top: 10rem;
 }
 
+form div {
+	padding-top: 3rem;
+	padding-bottom: 3rem;
+}
+
+input[type="radio"] {
+	transform: scale(1.4);
+}
+
 img {
 	border: 0;
-	width: 10%;
-	height: 10%;
-	float: right;
+	width: 8%;
+	height: 8%;
+	float: center;
 	background-color: #000000;
 	margin-top: 0rem;
 }

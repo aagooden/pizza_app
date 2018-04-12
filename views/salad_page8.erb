@@ -11,8 +11,10 @@
 	        <input type="radio" name="salad" value='<%= key %>, <%= value %>' required>
                 <div>
     	            <% if key == "Caesar" %>
-                        <%= "#{key} is #{value} dollars" %>
                         <img src="/img/caesarSalad.jpg">
+                        <%= "#{key} is #{value} dollars" %>
+                    <% elsif key == "none" %>
+                        <%= "You don't want any of this"
                     <% else %>
                         <%= "#{key} is #{value} dollars" %>
                         <img src="/img/veggieSalad.jpg">
@@ -27,7 +29,7 @@
     <br><br>
 
     <form method="post" action="/back-to-extra-toppings">
-        <input type="button" value="Go back to Extra Toppings">
+        <input type="submit" value="Go back to Extra Toppings">
     </form>
 
 </body>

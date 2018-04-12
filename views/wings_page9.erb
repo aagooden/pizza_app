@@ -10,8 +10,12 @@
 	    <% wings.each do |key, value| %>
 	        <input type="radio" name="wings" value='<%= key %>, <%= value %>' required>
 		        <div>
-		        	<%= "#{key} wings are #{value} dollars" %>
-		        	<img src="/img/wings.png">
+		        	<% if key == "none" %>
+                    	<%= "You don't want any" %>
+                    <% else %>
+		        		<%= "#{key} wings are #{value} dollars" %>
+		        		<img src="/img/wings.png">
+		        	<% end %>
 		        </div>
 		        <br><br>
 	    <% end %>
@@ -22,7 +26,7 @@
     <br><br>
 
     <form method="post" action="/back-to-salad">
-        <input type="button" value="Go back to Salads">
+        <input type="submit" value="Go back to Salads">
     </form>
 
 </body>

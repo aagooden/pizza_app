@@ -13,6 +13,8 @@
                     <% if key == "Bbq sauce" %>
                         <%= "the #{key} is #{value} dollars" %>
                         <img src="/img/bbq.jpg">
+                    <% elsif key == "none" %>
+                        <%= "You don't want any" %> 
                     <% else %>
                         <%= "the #{key} is #{value} dollars" %>
                         <img src="/img/buffaloSauce.jpg">
@@ -26,7 +28,7 @@
     <br><br>
 
     <form method="post" action="/back-to-veggies">
-        <input type="button" value="Go back to Veggies">
+        <input type="submit" value="Go back to Veggies">
     </form>
 </body>
 </html>

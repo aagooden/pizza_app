@@ -13,6 +13,8 @@
                         <% if key == "Chicken" %>
                             <%= "#{key} is #{value} dollars" %>
                             <img src="/img/chickenTopping.jpg">
+                        <% if key == "none" %>
+                            <%= "You don't want any" %> 
                         <% elsif key == "Pepperoni" %>
                             <%= "#{key} is #{value} dollars" %>
                             <img src="/img/pepperoni.jpg">
@@ -31,7 +33,7 @@
 
     <br><br>
     <form method="post" action="/back-to-pizza-crust">
-        <input type="button" value="Go back to Pizza Crust">
+        <input type="submit" value="Go back to Pizza Crust">
     </form>
 
 </body>

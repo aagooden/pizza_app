@@ -19,6 +19,7 @@ get '/size' do
 end
 
 post '/back-to-size' do
+	session[:pizza].pop
 	redirect '/size'
 end
 
@@ -214,7 +215,7 @@ get '/thanks' do
 	erb :thanks.erb
 end
 
-get '/more-pizza' do
+post '/more-pizza' do
 	session[:final_order].push(session[:pizza])
 	session[:pizza].clear
 	redirect "/size"
@@ -229,5 +230,5 @@ get '/about' do
 end
 
 get '/contact' do
-	erb :contact
+	erb :contact, :layout => :droids
 end

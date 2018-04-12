@@ -11,7 +11,7 @@
 		<h3>Pizza Sizes</h3>
 	    <% size.each do |key, value| %>
     		<input type="radio" name="size" value='<%= key %>, <%= value %>' required> 
-                <% if key == "XL" %>
+                <% if key == "XL crust" %>
                     <div>
         		      <%= "an #{key} pizza starts at #{value} dollars" %>
                       <img src="/img/crust.jpg">
@@ -32,7 +32,7 @@
 
     <br><br>
     <form method="get" action="/">
-        <input type="button" value="Go back to Welcome page">
+        <input type="submit" value="Go back to Welcome page">
     </form>
 </body>
 </html>

@@ -9,6 +9,8 @@
 	    <% drinks.each do |key, value| %>
 	         <input type="radio" name="drinks" value='<%= key %>, <%= value %>'>
 		        <div>
+                    <% if key == "none" %>
+                        <% "You don't want anything" %>
 		            <% if key == "Water" %>
                 			<%= "#{key} is #{value} dollars" %>
                 			<img src="/img/water.jpg">
@@ -35,7 +37,7 @@
     <br><br>
 
     <form method="post" action="/back-to-wings">
-        <input type="button" value="Go back to Wings">
+        <input type="submit" value="Go back to Wings">
     </form>
 
 </body>
