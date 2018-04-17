@@ -68,7 +68,11 @@ post '/back-to-veggies' do
 end
 
 post '/on-to-special-toppings' do
-	session[:pizza].push(params.values)
+	if params[:veggies].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/special-toppings'
 end
 
@@ -82,7 +86,11 @@ post '/back-to-special-toppings' do
 end
 
 post '/on-to-sauces' do
-	session[:pizza].push(params.values)
+	if params[:special_toppings].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/sauces'
 end
 
@@ -96,12 +104,15 @@ post '/back-to-sauces' do
 end
 
 post '/on-to-extra-toppings' do
-	session[:pizza].push(params.values)
+	if params[:sauces].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/extra-toppings'
 end
 
 get '/extra-toppings' do
-	session[:pizza].push(params.values)
 	erb :extra_toppings_page7
 end
 
@@ -111,7 +122,11 @@ post '/on-to-extra-toppings' do
 end
 
 post '/on-to-salad' do
-	session[:pizza].push(params.values)
+	if params[:extra_toppings].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/salad'
 end
 
@@ -125,7 +140,11 @@ post '/back-to-salad' do
 end
 
 post '/on-to-wings' do
-	session[:pizza].push(params.values)
+	if params[:salad].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/wings'
 end
 
@@ -139,7 +158,11 @@ post '/back-to-wings' do
 end
 
 post '/on-to-drinks' do
-	session[:pizza].push(params.values)
+	if params[:wings].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/drinks'
 end
 
@@ -153,7 +176,11 @@ post '/back-to-drinks' do
 end
 
 post '/on-to-pasta' do
-	session[:pizza].push(params.values)
+	if params[:drinks].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/pasta'
 end
 
@@ -162,12 +189,17 @@ get '/pasta' do
 end
 
 post '/on-to-almost-final' do
-	session[:pizza].push(params.values)
+	if params[:pasta].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/almost-final'
 end
 
 get '/almost-final' do
 	pizza = []
+	puts "this is session pizza #{session[:pizza]}"
 	session[:pizza].each do |ingredients|
 		ingredients.each do |string|
 			if string.class == String
