@@ -12,12 +12,7 @@
 		<% pizza.each do |ingredients|%>
 		<div>
 			<input type="checkbox" name="ingredients[]" value='<%= ingredients %>' checked>
-				<% if ingredients[0] == "none" %>
-				<% elsif ingredients[0] == ingredients[0].match(/crust/i) %>
-				<% elsif ingredients[0] == ingredients[0].match(/sauce/i) %>
-				<% else %>
 					<%= ingredients[0] %>
-					<% end %>
 					<% end %>
 			</div>
 		<br><br>

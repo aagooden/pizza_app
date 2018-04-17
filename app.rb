@@ -142,10 +142,13 @@ post '/back-to-salad' do
 end
 
 post '/on-to-wings' do
+	quantity = params[:quantity].to_i
 	if params[:salad].include?("none")
 		#do nothing
 	else
-		session[:pizza].push(params.values)
+		quantity.times do
+			session[:pizza].push(params[:salad])
+		end
 	end
 	redirect '/wings'
 end
@@ -160,10 +163,13 @@ post '/back-to-wings' do
 end
 
 post '/on-to-drinks' do
+	quantity = params[:quantity].to_i
 	if params[:wings].include?("none")
 		#do nothing
 	else
-		session[:pizza].push(params.values)
+		quantity.times do
+			session[:pizza].push(params[:wings])
+		end
 	end
 	redirect '/drinks'
 end
@@ -178,10 +184,13 @@ post '/back-to-drinks' do
 end
 
 post '/on-to-pasta' do
+	quantity = params[:quantity].to_i
 	if params[:drinks].include?("none")
 		#do nothing
 	else
-		session[:pizza].push(params.values)
+		quantity.times do
+			session[:pizza].push(params[:drinks])
+		end
 	end
 	redirect '/pasta'
 end
@@ -191,10 +200,13 @@ get '/pasta' do
 end
 
 post '/on-to-almost-final' do
+	quantity = params[:quantity].to_i
 	if params[:pasta].include?("none")
 		#do nothing
 	else
-		session[:pizza].push(params.values)
+		quantity.times do
+			session[:pizza].push(params[:pasta])
+		end
 	end
 	redirect '/almost-final'
 end
@@ -202,13 +214,11 @@ end
 get '/almost-final' do
 	pizza = []
 	puts "this is session pizza #{session[:pizza]}"
-	session[:pizza].each do |ingredients|
-		ingredients.each do |string|
-			if string.class == String
-				pizza << string.split(", ")
-			else
-				pizza << string
-			end
+	session[:pizza].each do |ingredient|
+		if ingredient.class == String
+			pizza << ingredient.split(", ")
+		else
+			pizza << ingredient
 		end
 	end
 	session[:pizza] = pizza
@@ -235,7 +245,7 @@ get '/final' do
 		session[:total_price] += prices.to_i
 	end
 	session[:total_price]
-	erb :final_page13, locals:{total_price: session[:total_price]}
+	erb :final_page13, locals:{total_price: session[:total_price], cart:pizza}
 end
 
 post '/on-to-checkout' do
