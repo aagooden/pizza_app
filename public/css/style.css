@@ -52,7 +52,11 @@ img {
 }
 
 .scrollbar {
-	overflow:auto; 
+	overflow:auto;
 	height:556px;
 	width:564px;
+}
+.yield {
+	width: 70%;
+	background-color: rgba(255, 255, 255, 0.5);
 }
