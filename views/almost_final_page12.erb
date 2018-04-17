@@ -10,16 +10,16 @@
 
 	<form method="post" action="/get-rid-of-these">
 		<% pizza.each do |ingredients|%>
+		<div>
 			<input type="checkbox" name="ingredients[]" value='<%= ingredients %>' checked>
-			<div>
 				<% if ingredients[0] == "none" %>
 				<% elsif ingredients[0] == ingredients[0].match(/crust/i) %>
 				<% elsif ingredients[0] == ingredients[0].match(/sauce/i) %>
 				<% else %>
 					<%= ingredients[0] %>
-				<% end %>
+					<% end %>
+					<% end %>
 			</div>
-		<% end %>
 		<br><br>
 		<input type="submit" value="click this to fix your pizza">
 	</form>

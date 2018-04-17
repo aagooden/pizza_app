@@ -11,19 +11,16 @@
 	    <% meats.each do |key, value| %>
 	    		<div>
                     <input type="checkbox" name="meats[]" value='<%= key %>, <%= value %>'>
+                    <%= "$#{value} #{key}" %>
                         <% if key == "Chicken" %>
-                            <%= "#{key} is #{value} dollars" %>
                             <img src="/img/chickenTopping.jpg">
                         <% elsif key == "none" %>
-                            You don't want any 
+                            You don't want any
                         <% elsif key == "Pepperoni" %>
-                            <%= "#{key} is #{value} dollars" %>
                             <img src="/img/pepperoni.jpg">
                         <% elsif key == "Sausage"%>
-                            <%= "#{key} is #{value} dollars" %>
                             <img src="/img/sausage.jpg">
                         <% else %>
-                            <%= "#{key} is #{value} dollars" %>
                             <img src="/img/bacon.jpg">
                         <% end %>
                     </div>

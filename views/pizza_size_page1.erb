@@ -4,35 +4,22 @@
 	<title>Welcome!</title>
 </head>
 <body>
-
 	<h1>Scott's Pizza Shack Menu</h1>
 	<form method="post" action="/on-to-crust">
-
 		<h3>Pizza Sizes</h3>
 	    <% size.each do |key, value| %>
-    		<input type="radio" name="size" value='<%= key %>, <%= value %>' required> 
-                <% if key == "XL crust" %>
-                    <div>
-        		      <%= "an #{key} pizza starts at #{value} dollars" %>
-                      <img src="/img/crust.jpg">
-                    </div>
-        		<% else %>
-                    <div>
-        			 <%= "a #{key} pizza starts at #{value} dollars" %>
-                     <img src="/img/crust.jpg">
-                    </div>
-                    <br>
-        		<% end %>
+				<div>
+	    		<input type="radio" name="size" value='<%= key %>, <%= value %>' required>
+		      <%= "$#{value} #{key}" %>
+          <img src="/img/crust.jpg">
+				</div>
     	<% end %>
-        <br><br>
-        <div>
-    	<input type="submit" value="next to pizza crust">
-        </div>
+      <div>
+	    	<input type="submit" value="next to pizza crust">
+	    </div>
 	</form>
-
-    <br><br>
-    <form method="get" action="/">
-        <input type="submit" value="Go back to Welcome page">
-    </form>
+	<form method="get" action="/">
+	  <input type="submit" value="Go back to Welcome page">
+	</form>
 </body>
 </html>

@@ -7,24 +7,20 @@
     <h3>Drinks</h3>
     <form method="post" action="/on-to-pasta">
 	    <% drinks.each do |key, value| %>
+			<div>
 	         <input type="radio" name="drinks" value='<%= key %>, <%= value %>'>
-		        <div>
+					 <%= "$#{value} #{key}" %>
                     <% if key == "none" %>
                         <% "You don't want anything" %>
 		            <% elsif key == "Water" %>
-                			<%= "#{key} is #{value} dollars" %>
                 			<img src="/img/water.jpg">
                 	<% elsif key == "Coca-Cola" %>
-                			<%= "#{key} is #{value} dollars" %>
                 			<img src="/img/coke.jpg">
                 	<% elsif key == "Powerade" %>
-                			<%= "#{key} is #{value} dollars" %>
                 			<img src="/img/powerade.jpg">
                 	<% elsif key == "Tea" %>
-                			<%= "#{key} is #{value} dollars" %>
                 			<img src="/img/tea.jpg">
                 	<% else %>
-                			<%= "#{key} is #{value} dollars" %>
                 			<img src="/img/sprite.jpg">
                 	<% end %>
 		        </div>

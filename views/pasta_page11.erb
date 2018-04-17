@@ -8,15 +8,14 @@
     <h3>Pasta</h3>
     <form method="post" action="/on-to-almost-final">
 	    <% pasta.each do |key, value| %>
+			<div>
 	        <input type="radio" name="pasta" value='<%= key %>, <%= value %>'>
-		        <div>
+							<%= "$#{value} #{key}" %>
 		            <% if key == "Chicken alfredo" %>
-                		<%= "#{key} is #{value} dollars" %>
                 		<img src="/img/chickenAlfredo.jpg">
                     <% elsif key == "none" %>
-                        <%= "You don't want any" %> 
+                        <%= "You don't want any" %>
                 	<% else %>
-                		<%= "#{key} is #{value} dollars" %>
                 		<img src="/img/lasagna.jpg">
                 	<% end %>
 		        </div>

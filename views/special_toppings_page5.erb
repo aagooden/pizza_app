@@ -8,15 +8,14 @@
     <h3>Special Toppings</h3>
     <form method="post" action="/on-to-sauces">
     	<% special_toppings.each do |key, value| %>
+			<div>
 	   		<input type="radio" name="special_toppings" value='<%= key %>, <%= value %>' required>
-                <div>
+				<%= "$#{value} #{key}" %>
                     <% if key == "Bbq sauce" %>
-                        <%= "the #{key} is #{value} dollars" %>
                         <img src="/img/bbq.jpg">
                     <% elsif key == "none" %>
-                        <%= "You don't want any" %> 
+                        <%= "You don't want any" %>
                     <% else %>
-                        <%= "the #{key} is #{value} dollars" %>
                         <img src="/img/buffaloSauce.jpg">
                     <% end %>
                 </div>
