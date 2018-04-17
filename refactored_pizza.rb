@@ -1,3 +1,13 @@
+def convert_input(params) #converts the meats input into a usable array.
+	converted = []
+	params.each do |item|
+		conv = item.split('!!')
+		# conv[1] = conv[1].to_i
+		converted.push conv
+	end
+	return converted
+end
+
 def size
 	{"small crust" => 2, "medium crust" => 3, "large crust" => 4, "XL crust" => 5}
 end

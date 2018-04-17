@@ -52,10 +52,8 @@ post '/back-to-meats' do
 end
 
 post '/on-to-veggies' do
-	selected_meats = params.values.to_a.flatten
-	selected_meats.each do |meat|
-		session[:pizza].push(meat.split(', '))
-	end
+	selected_meats = convert_input(params[:meats])
+	session[:pizza].push selected_meats
 	redirect '/veggies'
 end
 
@@ -170,9 +168,13 @@ end
 
 get '/almost-final' do
 	pizza = []
-	session[:pizza]. each do |ingredients|
+	session[:pizza].each do |ingredients|
 		ingredients.each do |string|
-			pizza << string.split(", ")
+			if string.class == String
+				pizza << string.split(", ")
+			else
+				pizza << string
+			end
 		end
 	end
 	session[:pizza] = pizza

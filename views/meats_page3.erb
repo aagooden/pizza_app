@@ -10,7 +10,7 @@
     <form method="post" action="/on-to-veggies">
 	    <% meats.each do |key, value| %>
 	    		<div>
-                    <input type="checkbox" name="meats[]" value='<%= key %>, <%= value %>'>
+                    <input type="checkbox" name="meats[]" value='<%= key %>!!<%= value %>'>
                     <%= "$#{value} #{key}" %>
                         <% if key == "Chicken" %>
                             <img src="/img/chickenTopping.jpg">
