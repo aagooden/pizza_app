@@ -53,7 +53,9 @@ end
 
 post '/on-to-veggies' do
 	selected_meats = convert_input(params[:meats])
-	session[:pizza].push selected_meats
+	if selected_meats != "none"
+		session[:pizza].push selected_meats
+	end
 	redirect '/veggies'
 end
 

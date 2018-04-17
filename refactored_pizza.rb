@@ -1,10 +1,15 @@
 def convert_input(params) #converts the meats input into a usable array.
 	converted = []
-	params.each do |item|
-		conv = item.split('!!')
-		# conv[1] = conv[1].to_i
-		converted.push conv
+	if params[0].include?("none")
+		converted = "none"
+	else
+		params.each do |item|
+			conv = item.split('!!')
+			# conv[1] = conv[1].to_i #converts price into integer
+			converted.push conv
+		end
 	end
+
 	return converted
 end
 
