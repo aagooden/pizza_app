@@ -172,7 +172,7 @@ get '/almost-final' do
 	pizza = []
 	session[:pizza]. each do |ingredients|
 		ingredients.each do |string|
-			pizza << string.split(", ") 
+			pizza << string.split(", ")
 		end
 	end
 	session[:pizza] = pizza
@@ -186,7 +186,7 @@ post "/get-rid-of-these" do
 end
 
 post '/on-to-final' do
-	session[:final_order].push(session[:pizza])
+	session[:final_order].push (session[:pizza])
 	redirect '/final'
 end
 
