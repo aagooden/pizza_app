@@ -42,7 +42,7 @@ def extra_toppings
 end
 
 def salad
-	{"none" => 0, "Caesar" => 10, "Veggie" => 10}
+	{"none" => 0, "Caesar Salad" => 10, "Veggie Salad" => 10}
 end
 
 def wings
@@ -54,5 +54,5 @@ def drinks
 end
 
 def pasta
-	{"none" => 0, "Chicken alfredo" => 8, "Lasagne" => 8}
+	{"none" => 0, "Chicken Alfredo" => 8, "Lasagne" => 8}
 end

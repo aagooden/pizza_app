@@ -10,20 +10,14 @@
     <form method="post" action="/on-to-veggies">
 	    <% meats.each do |key, value| %>
 	    		<div>
-                    <input type="checkbox" name="meats[]" value='<%= key %>!!<%= value %>'>
-                    <%= "$#{value} #{key}" %>
-                        <% if key == "Chicken" %>
-                            <img src="/img/chickenTopping.jpg">
-                        <% elsif key == "none" %>
-                            You don't want any
-                        <% elsif key == "Pepperoni" %>
-                            <img src="/img/pepperoni.jpg">
-                        <% elsif key == "Sausage"%>
-                            <img src="/img/sausage.jpg">
-                        <% else %>
-                            <img src="/img/bacon.jpg">
-                        <% end %>
-                    </div>
+            <input type="checkbox" name="meats[]" value='<%= key %>!!<%= value %>'>
+            <%= "$#{value} #{key}" %>
+                <% if key == "none" %>
+                    You don't want any
+                <% else %>
+                  <img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
+                <% end %>
+            </div>
 	   	<% end %>
         <br><br>
     <input type="submit" value="Next to veggies" onclick="meatCheckboxChecker()">

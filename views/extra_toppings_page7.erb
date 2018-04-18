@@ -9,19 +9,17 @@
     <form method="post" action="/on-to-salad">
 		<% extra_toppings.each do |key, value| %>
     <div>
+      <input type="radio" name="extra_toppings" value='<%= key %>, <%= value %>'>
       <%= "$#{value} #{key}" %>
-		   	<input type="radio" name="extra_toppings" value='<%= key %>, <%= value %>'>
-		            <% if key == "Double pepperoni" %>
-                        <img src="/img/pepperoni.jpg">
-                    <% elsif key == "none" %>
-                        <%= "You don't want any" %>
-                    <% elsif key == "Extra cheese" %>
-                        <img src="/img/cheese.jpg">
-                    <% else %>
-                        <img src="/img/chickenTopping.jpg">
-                    <% end %>
-			    </div>
-		    <% end %>
+          <% if key == "none" %>
+              <%= "You don't want any" %>
+        <% elsif key.downcase.include? "double"%>
+          <img src="/img/<%=key.downcase.gsub("double ", "")%>.jpg">
+        <% else %>
+          <img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
+        <% end %>
+			   </div>
+		   <% end %>
 
     <input type="submit" value="Next to Salads">
     </form>

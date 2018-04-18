@@ -11,17 +11,9 @@
 	         <input type="radio" name="drinks" value='<%= key %>, <%= value %>'>
 					 <%= "$#{value} #{key}" %>
                     <% if key == "none" %>
-                        <% "You don't want anything" %>
-		            <% elsif key == "Water" %>
-                			<img src="/img/water.jpg">
-                	<% elsif key == "Coca-Cola" %>
-                			<img src="/img/coke.jpg">
-                	<% elsif key == "Powerade" %>
-                			<img src="/img/powerade.jpg">
-                	<% elsif key == "Tea" %>
-                			<img src="/img/tea.jpg">
-                	<% else %>
-                			<img src="/img/sprite.jpg">
+                        You don't want anything
+		            <% else %>
+                			<img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
                 	<% end %>
 		        </div>
 		        <br><br>

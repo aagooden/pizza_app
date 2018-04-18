@@ -11,12 +11,10 @@
 			<div>
 	   		<input type="radio" name="special_toppings" value='<%= key %>, <%= value %>' required>
 				<%= "$#{value} #{key}" %>
-                    <% if key == "Bbq sauce" %>
-                        <img src="/img/bbq.jpg">
-                    <% elsif key == "none" %>
-                        <%= "You don't want any" %>
+                    <% if key == "none" %>
+                        You don't want any
                     <% else %>
-                        <img src="/img/buffaloSauce.jpg">
+                        <img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
                     <% end %>
                 </div>
         <br>

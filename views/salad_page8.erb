@@ -11,12 +11,10 @@
 			<div>
 	      <input type="radio" name="salad" value='<%= key %>, <%= value %>' required>
 				<%= "$#{value} #{key}" %>
-	        <% if key == "Caesar" %>
-	            <img src="/img/caesarSalad.jpg">
-	          <% elsif key == "none" %>
-	            <% "You don't want any of this" %>
-	          <% else %>
-	            <img src="/img/veggieSalad.jpg">
+	        <% if key == "none" %>
+            You don't want any of this
+          <% else %>
+          	<img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
 	        <% end %>
 	    <% end %>
 		</div>
