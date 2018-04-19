@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="js/meatCheckboxChecker.js"></script>
+    <!-- <script type="text/javascript" src="js/meatCheckboxChecker.js"></script> -->
     <title></title>
 </head>
 <body>
@@ -12,7 +12,8 @@
       <% meats.each do |key, value| %>
 	    		<tr>
             <td>
-              <input type="checkbox" name="meats[]" value='<%= key %>!!<%= value %>'>
+              <!-- <input type="radio" name="selection" value='<%= key %>!!<%= value %>'> -->
+              <input type="radio" name="selection" value='<%= key %>, <%= value %>' required>
               <%= "$#{value} #{key}" %>
             </td>
             <td>
@@ -30,9 +31,6 @@
     </form>
 
     <br><br>
-    <form method="post" action="/back-to-pizza-crust">
-        <input type="submit" value="Go back to Pizza Crust">
-    </form>
-
+    <a href="/crust"><button>Go back to Pizza Crust</button>
 </body>
 </html>

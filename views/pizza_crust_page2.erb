@@ -4,13 +4,13 @@
 	<title>Welcome!</title>
 </head>
 <body>
+	<h3>Crust Sizes</h3>
 	<form method="post" action="/on-to-meats">
-		<h3>Crust Sizes</h3>
 		<table>
 			<% crust.each do |key, value| %>
 				<tr>
 					<td>
-			 			<input type="radio" name="crust" value='<%= key %>, <%= value %>' required>
+			 			<input type="radio" name="selection" value='<%= key %>, <%= value %>' required>
 						<%= "$#{value} #{key}" %>
 					</td>
 					<td>
@@ -25,8 +25,8 @@
 
 	<br><br>
 
-    <form method="post" action="/back-to-size">
-        <input type="submit" value="Go back to Pizza Size">
-    </form>
+	<a href="/size">
+		<button>Go back to Pizza Size</button>
+	</a>
 </body>
 </html>

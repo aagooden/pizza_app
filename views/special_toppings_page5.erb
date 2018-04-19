@@ -7,11 +7,12 @@
 
     <h3>Special Toppings</h3>
     <form method="post" action="/on-to-sauces">
+			<input type="hidden" name="step" value="special_toppings">
 			<table>
 				<% special_toppings.each do |key, value| %>
 					<tr>
 						<td>
-							<input type="radio" name="special_toppings" value='<%= key %>, <%= value %>' required>
+							<input type="radio" name="selection" value='<%= key %>, <%= value %>' required>
 							<%= "$#{value} #{key}" %>
 						</td>
 						<td>
@@ -29,8 +30,6 @@
     </form>
     <br><br>
 
-    <form method="post" action="/back-to-veggies">
-        <input type="submit" value="Go back to Veggies">
-    </form>
+    <a href="/veggies"><button>Go back to Veggies</button></a>
 </body>
 </html>

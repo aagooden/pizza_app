@@ -11,7 +11,7 @@
 		<% veggies.each do |key, value| %>
 			<tr>
 				<td>
-					<input type="radio" name="veggies" value='<%= key %>, <%= value %>' required>
+					<input type="radio" name="selection" value='<%= key %>, <%= value %>' required>
 					<%= "$#{value} #{key}" %>
 				</td>
 				<td>
@@ -28,9 +28,7 @@
   </form>
 
   <br><br>
-  <form method="post" action="/back-to-meats">
-      <input type="submit" value="Go back to Meats">
-  </form>
 
+  <a href="/meats"><button>Go back to Meats</button></a>
 </body>
 </html>
