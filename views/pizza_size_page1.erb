@@ -4,35 +4,31 @@
 	<title>Welcome!</title>
 </head>
 <body>
-
 	<h1>Scott's Pizza Shack Menu</h1>
 	<form method="post" action="/on-to-crust">
-
 		<h3>Pizza Sizes</h3>
-	    <% size.each do |key, value| %>
-    		<input type="radio" name="size" value='<%= key %>, <%= value %>' required> 
-                <% if key == "XL crust" %>
-                    <div>
-        		      <%= "an #{key} pizza starts at #{value} dollars" %>
-                      <img src="/img/crust.jpg">
-                    </div>
-        		<% else %>
-                    <div>
-        			 <%= "a #{key} pizza starts at #{value} dollars" %>
-                     <img src="/img/crust.jpg">
-                    </div>
-                    <br>
-        		<% end %>
-    	<% end %>
-        <br><br>
-        <div>
-    	<input type="submit" value="next to pizza crust">
-        </div>
-	</form>
+		<div>
+			<table>
 
-    <br><br>
-    <form method="get" action="/">
-        <input type="submit" value="Go back to Welcome page">
-    </form>
+			<% size.each do |key, value| %>
+				<tr>
+					<td>
+		    		<input type="radio" name="size" value='<%= key %>, <%= value %>' required>
+			      <%= "$#{value} #{key}" %>
+					</td>
+					<td>
+	          <img src="/img/crust.jpg">
+					</td>
+				</tr>
+    	<% end %>
+		</table>
+	</div>
+      <div>
+	    	<input type="submit" value="next to pizza crust">
+	    </div>
+	</form>
+	<form method="get" action="/">
+	  <input type="submit" value="Go back to Welcome page">
+	</form>
 </body>
 </html>

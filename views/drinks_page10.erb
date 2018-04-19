@@ -6,31 +6,24 @@
 <body>
     <h3>Drinks</h3>
     <form method="post" action="/on-to-pasta">
-	    <% drinks.each do |key, value| %>
-	         <input type="radio" name="drinks" value='<%= key %>, <%= value %>'>
-		        <div>
-                    <% if key == "none" %>
-                        <% "You don't want anything" %>
-		            <% elsif key == "Water" %>
-                			<%= "#{key} is #{value} dollars" %>
-                			<img src="/img/water.jpg">
-                	<% elsif key == "Coca-Cola" %>
-                			<%= "#{key} is #{value} dollars" %>
-                			<img src="/img/coke.jpg">
-                	<% elsif key == "Powerade" %>
-                			<%= "#{key} is #{value} dollars" %>
-                			<img src="/img/powerade.jpg">
-                	<% elsif key == "Tea" %>
-                			<%= "#{key} is #{value} dollars" %>
-                			<img src="/img/tea.jpg">
-                	<% else %>
-                			<%= "#{key} is #{value} dollars" %>
-                			<img src="/img/sprite.jpg">
-                	<% end %>
-		        </div>
-		        <br><br>
-	    <% end %>
-
+			<table>
+				<% drinks.each do |key, value| %>
+					<tr>
+						<td>
+							<input type="radio" name="drinks" value='<%= key %>, <%= value %>' required>
+							<%= "$#{value} #{key}" %>
+						</td>
+						<td>
+				      <% if key == "none" %>
+								You don't want any
+				      <% else %>
+				      	<img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
+			      	<% end %>
+						</td>
+					</tr>
+				<% end %>
+			</table>
+Quantity: <input type="number" required min="0" name="quantity">
     <input type="submit" value="Next to Pasta">
     </form>
 

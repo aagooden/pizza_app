@@ -4,27 +4,30 @@
 	<title></title>
 </head>
 <body>
-	
+
     <h3>Wings</h3>
     <form method="post" action="/on-to-drinks">
-	    <% wings.each do |key, value| %>
-	        <input type="radio" name="wings" value='<%= key %>, <%= value %>' required>
-		        <div>
-		        	<% if key == "none" %>
-                    	<%= "You don't want any" %>
-                    <% else %>
-		        		<%= "#{key} wings are #{value} dollars" %>
-		        		<img src="/img/wings.png">
-		        	<% end %>
-		        </div>
-		        <br><br>
-	    <% end %>
-
+			<table>
+				<% wings.each do |key, value| %>
+					<tr>
+						<td>
+							<input type="radio" name="wings" value='<%= key %>, <%= value %>' required>
+							<%= "$#{value} #{key}" %>
+						</td>
+						<td>
+				      <% if key == "none" %>
+								You don't want any
+				      <% else %>
+				      	<img src="/img/wings.png">
+			      	<% end %>
+						</td>
+					</tr>
+				<% end %>
+			</table>
+Quantity: <input type="number" required min="0" name="quantity">
     <input type="submit" value="Next to Drinks">
-    </form>
-
-    <br><br>
-
+	</form>
+	<br>
     <form method="post" action="/back-to-salad">
         <input type="submit" value="Go back to Salads">
     </form>

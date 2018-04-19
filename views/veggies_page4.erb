@@ -5,34 +5,32 @@
 </head>
 <body>
 
-        <h3>Veggies</h3>
-        <form method="post" action="/on-to-special-toppings">
-    		<% veggies.each do |key, value| %>
-	      		<input type="radio" name="veggies" value='<%= key %>, <%= value %>' required>
-                <div>
-                    <% if key == "Tomato" %>
-                        <%= "#{key} is #{value} dollars" %>
-                        <img src="/img/tomatoes.jpg">
-                    <% elsif key == "none" %>
-                        <%= "You don't want any" %>
-                    <% elsif key == "Pineapple" %>
-                        <%= "#{key} is #{value} dollars" %>
-                        <img src="/img/pineapple.jpg">
-                    <% else %>
-                        <%= "#{key} is #{value} dollars" %>
-                        <img src="/img/spinach.jpg">
-                    <% end %>
-                    </div>
+	<h3>Veggies</h3>
+	<form method="post" action="/on-to-special-toppings">
+	<table>
+		<% veggies.each do |key, value| %>
+			<tr>
+				<td>
+					<input type="radio" name="veggies" value='<%= key %>, <%= value %>' required>
+					<%= "$#{value} #{key}" %>
+				</td>
+				<td>
+		      <% if key == "none" %>
+						You don't want any
+		      <% else %>
+		      	<img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
+	      	<% end %>
+				</td>
+			</tr>
+		<% end %>
+	</table>
+  <input type="submit" value="Next to Special Toppings">
+  </form>
 
-	        	<% end %>
-
-    <input type="submit" value="Next to Special Toppings">
-    </form>
-
-    <br><br>
-    <form method="post" action="/back-to-meats">
-        <input type="submit" value="Go back to Meats">
-    </form>
+  <br><br>
+  <form method="post" action="/back-to-meats">
+      <input type="submit" value="Go back to Meats">
+  </form>
 
 </body>
 </html>

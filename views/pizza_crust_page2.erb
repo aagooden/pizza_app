@@ -6,26 +6,23 @@
 <body>
 	<form method="post" action="/on-to-meats">
 		<h3>Crust Sizes</h3>
-        	<% crust.each do |key, value| %>
-     			<input type="radio" name="crust" value='<%= key %>, <%= value %>' required>
-     				<div>
-     					<% if key == "Pan crust" %>
-                			<%= "the #{key} is #{value} dollars" %>
-                			<img src="/img/PanCrust.jpg">
-                		<% elsif key == "Stuffed crust" %>
-                			<%= "the #{key} is #{value} dollars" %>
-                			<img src="/img/cheeseStuffedCrust.jpg">
-                		<% else %>
-                			<%= "the #{key} is #{value} dollars" %>
-                			<img src="/img/baconCheeseStuffedCrust.jpg">
-                		<% end %>
-                	</div>
-                <br>
-        	    <% end %>
+		<table>
+			<% crust.each do |key, value| %>
+				<tr>
+					<td>
+			 			<input type="radio" name="crust" value='<%= key %>, <%= value %>' required>
+						<%= "$#{value} #{key}" %>
+					</td>
+					<td>
+						<img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
+					</td>
+				</tr>
+		  <% end %>
+		</table>
 		<br><br>
     	<input type="submit" value="On to meats">
 	</form>
-    
+
 	<br><br>
 
     <form method="post" action="/back-to-size">

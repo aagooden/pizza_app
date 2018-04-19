@@ -1,3 +1,18 @@
+def convert_input(params) #converts the meats input into a usable array.
+	converted = []
+	if params[0].include?("none")
+		converted = "none"
+	else
+		params.each do |item|
+			conv = item.split('!!')
+			# conv[1] = conv[1].to_i #converts price into integer
+			converted.push conv
+		end
+	end
+
+	return converted
+end
+
 def size
 	{"small crust" => 2, "medium crust" => 3, "large crust" => 4, "XL crust" => 5}
 end
@@ -27,7 +42,7 @@ def extra_toppings
 end
 
 def salad
-	{"none" => 0, "Caesar" => 10, "Veggie" => 10}
+	{"none" => 0, "Caesar Salad" => 10, "Veggie Salad" => 10}
 end
 
 def wings
@@ -39,5 +54,5 @@ def drinks
 end
 
 def pasta
-	{"none" => 0, "Chicken alfredo" => 8, "Lasagne" => 8}
+	{"none" => 0, "Chicken Alfredo" => 8, "Lasagne" => 8}
 end

@@ -7,25 +7,26 @@
 
     <h3>Extra Toppings</h3>
     <form method="post" action="/on-to-salad">
-		<% extra_toppings.each do |key, value| %>
-		   	<input type="radio" name="extra_toppings" value='<%= key %>, <%= value %>'>
-			   	<div>
-		            <% if key == "Double pepperoni" %>
-                        <%= "#{key} is #{value} dollars" %>
-                        <img src="/img/pepperoni.jpg">
-                    <% elsif key == "none" %>
-                        <%= "You don't want any" %>
-                    <% elsif key == "Extra cheese" %>
-                        <%= "#{key} is #{value} dollars" %>
-                        <img src="/img/cheese.jpg">
-                    <% else %>
-                        <%= "#{key} is #{value} dollars" %>
-                        <img src="/img/chickenTopping.jpg">
-                    <% end %>
-			    </div>
-		    <% end %>
-
-    <input type="submit" value="Next to Salads">
+      <table>
+        <% extra_toppings.each do |key, value| %>
+          <tr>
+            <td>
+              <input type="radio" name="extra_toppings" value='<%= key %>, <%= value %>' required>
+              <%= "$#{value} #{key}" %>
+            </td>
+            <td>
+              <% if key == "none" %>
+                You don't want any
+              <% elsif key.downcase.include? "double"%>
+                <img src="/img/<%=key.downcase.gsub("double ", "")%>.jpg">
+              <% else %>
+                <img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </table>
+		<input type="submit" value="Next to Salads">
     </form>
 
     <br><br>

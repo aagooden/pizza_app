@@ -7,22 +7,24 @@
 
     <h3>Pasta</h3>
     <form method="post" action="/on-to-almost-final">
-	    <% pasta.each do |key, value| %>
-	        <input type="radio" name="pasta" value='<%= key %>, <%= value %>'>
-		        <div>
-		            <% if key == "Chicken alfredo" %>
-                		<%= "#{key} is #{value} dollars" %>
-                		<img src="/img/chickenAlfredo.jpg">
-                    <% elsif key == "none" %>
-                        <%= "You don't want any" %> 
-                	<% else %>
-                		<%= "#{key} is #{value} dollars" %>
-                		<img src="/img/lasagna.jpg">
-                	<% end %>
-		        </div>
-		        <br><br>
-	    <% end %>
-	    <br><br>
+			<table>
+				<% pasta.each do |key, value| %>
+					<tr>
+						<td>
+							<input type="radio" name="pasta" value='<%= key %>, <%= value %>' required>
+							<%= "$#{value} #{key}" %>
+						</td>
+						<td>
+				      <% if key == "none" %>
+								You don't want any
+				      <% else %>
+				      	<img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
+			      	<% end %>
+						</td>
+					</tr>
+				<% end %>
+			</table>
+			Quantity: <input type="number" required min="0" name="quantity">
     <input type="submit" value="Finalize">
     </form>
 

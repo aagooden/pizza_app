@@ -52,9 +52,9 @@ post '/back-to-meats' do
 end
 
 post '/on-to-veggies' do
-	selected_meats = params.values.to_a.flatten
-	selected_meats.each do |meat|
-		session[:pizza].push(meat.split(', '))
+	selected_meats = convert_input(params[:meats])
+	if selected_meats != "none"
+		session[:pizza].push selected_meats
 	end
 	redirect '/veggies'
 end
@@ -70,7 +70,11 @@ post '/back-to-veggies' do
 end
 
 post '/on-to-special-toppings' do
-	session[:pizza].push(params.values)
+	if params[:veggies].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/special-toppings'
 end
 
@@ -84,7 +88,11 @@ post '/back-to-special-toppings' do
 end
 
 post '/on-to-sauces' do
-	session[:pizza].push(params.values)
+	if params[:special_toppings].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/sauces'
 end
 
@@ -98,12 +106,15 @@ post '/back-to-sauces' do
 end
 
 post '/on-to-extra-toppings' do
-	session[:pizza].push(params.values)
+	if params[:sauces].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/extra-toppings'
 end
 
 get '/extra-toppings' do
-	session[:pizza].push(params.values)
 	erb :extra_toppings_page7
 end
 
@@ -113,7 +124,11 @@ post '/on-to-extra-toppings' do
 end
 
 post '/on-to-salad' do
-	session[:pizza].push(params.values)
+	if params[:extra_toppings].include?("none")
+		#do nothing
+	else
+		session[:pizza].push(params.values)
+	end
 	redirect '/salad'
 end
 
@@ -127,7 +142,14 @@ post '/back-to-salad' do
 end
 
 post '/on-to-wings' do
-	session[:pizza].push(params.values)
+	quantity = params[:quantity].to_i
+	if params[:salad].include?("none")
+		#do nothing
+	else
+		quantity.times do
+			session[:pizza].push(params[:salad])
+		end
+	end
 	redirect '/wings'
 end
 
@@ -141,7 +163,14 @@ post '/back-to-wings' do
 end
 
 post '/on-to-drinks' do
-	session[:pizza].push(params.values)
+	quantity = params[:quantity].to_i
+	if params[:wings].include?("none")
+		#do nothing
+	else
+		quantity.times do
+			session[:pizza].push(params[:wings])
+		end
+	end
 	redirect '/drinks'
 end
 
@@ -155,7 +184,14 @@ post '/back-to-drinks' do
 end
 
 post '/on-to-pasta' do
-	session[:pizza].push(params.values)
+	quantity = params[:quantity].to_i
+	if params[:drinks].include?("none")
+		#do nothing
+	else
+		quantity.times do
+			session[:pizza].push(params[:drinks])
+		end
+	end
 	redirect '/pasta'
 end
 
@@ -164,15 +200,25 @@ get '/pasta' do
 end
 
 post '/on-to-almost-final' do
-	session[:pizza].push(params.values)
+	quantity = params[:quantity].to_i
+	if params[:pasta].include?("none")
+		#do nothing
+	else
+		quantity.times do
+			session[:pizza].push(params[:pasta])
+		end
+	end
 	redirect '/almost-final'
 end
 
 get '/almost-final' do
 	pizza = []
-	session[:pizza]. each do |ingredients|
-		ingredients.each do |string|
-			pizza << string.split(", ") 
+	puts "this is session pizza #{session[:pizza]}"
+	session[:pizza].each do |ingredient|
+		if ingredient.class == String
+			pizza << ingredient.split(", ")
+		else
+			pizza << ingredient
 		end
 	end
 	session[:pizza] = pizza
@@ -186,7 +232,7 @@ post "/get-rid-of-these" do
 end
 
 post '/on-to-final' do
-	session[:final_order].push(session[:pizza])
+	session[:final_order].push (session[:pizza])
 	redirect '/final'
 end
 
@@ -199,7 +245,7 @@ get '/final' do
 		session[:total_price] += prices.to_i
 	end
 	session[:total_price]
-	erb :final_page13, locals:{total_price: session[:total_price]}
+	erb :final_page13, locals:{total_price: session[:total_price], cart:pizza}
 end
 
 post '/on-to-checkout' do
