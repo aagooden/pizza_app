@@ -6,21 +6,44 @@
 <body>
 	<h1>Do you want to take things off of what you just got or add more?</h1>
 	<br>
-	<h2>Unselect what ingredients you don't one to have on your order</h2>
+	<h2>Select which ingredients/items you want to remove from your order</h2>
 
 	<form method="post" action="/get-rid-of-these">
-		<% pizza.each do |ingredients|%>
-		<div>
-			<input type="checkbox" name="ingredients[]" value='<%= ingredients %>' checked>
-					<%= ingredients[0] %>
-					<% end %>
-			</div>
-		<br><br>
+		<table>
+			<% order.each_with_index do |item, index| %>
+					<% if item["type"] == "pizza" %>
+						<% item["ingredients"].each_with_index do |ingredient, pizza_index| %>
+						<tr>
+							<td>
+								<input type="checkbox" name="pizza_remove[]" value="<%=index%>@<%=pizza_index%>">
+							</td>
+							<td>
+								$<%= sprintf("%.02f",ingredient["price"])%>
+							</td>
+							<td>
+								<%= ingredient["ingredient"] %>
+							</td>
+						</tr>
+						<% end %>
+			<% else %>
+				<tr>
+					<td>
+						<input type="checkbox" name="side_remove[]" value="<%=index%>">
+					</td>
+					<td>
+						$<%= sprintf("%.02f",item["price"])%>
+					</td>
+					<td>
+						<%=item["name"]%>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+		</table>
 		<input type="submit" value="click this to fix your pizza">
 	</form>
 	<br><br>
-	<form method="post" action="/on-to-final">
-		<input type="submit" value="I want to buy my food now">
+	<a href="/final"><button>I want to buy my food now</button></a>
 	</form>
 
     <form method="post" action="/more-pizza">

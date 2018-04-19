@@ -6,11 +6,32 @@
 <body>
 	<h1>Time to pay up</h1>
 	<p>
-		<% cart.each do |item| %>
-			<%= item %>
+		<table>
+			<% order.each_with_index do |item, index| %>
+					<% if item["type"] == "pizza" %>
+						<% item["ingredients"].each_with_index do |ingredient, pizza_index| %>
+						<tr>
+							<td>
+								$<%= sprintf("%.02f",ingredient["price"])%>
+							</td>
+							<td>
+								<%= ingredient["ingredient"] %>
+							</td>
+						</tr>
+						<% end %>
+			<% else %>
+				<tr>
+					<td>
+						$<%= sprintf("%.02f",item["price"])%>
+					</td>
+					<td>
+						<%=item["name"]%>
+					</td>
+				</tr>
+			<% end %>
 		<% end %>
+		</table>
 	</p>
-	<p>Your payment is <%= session[:total_price] %> dollars currently.</p>
 	<br><br>
 	<form method="post" action="/on-to-checkout">
 		<h2>Would you like delivery?</h2>

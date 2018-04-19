@@ -1,3 +1,66 @@
+def convert_pizza(params, session)
+	selection = params.split(",")
+	session["ingredients"] << {'ingredient' => selection[0],'price' => selection[1].to_f}
+end
+
+def convert_sides(params, session, quantity)
+	selection = params.split(",")
+	side_hash = {
+		'name' => selection[0],
+		"price" => selection[1].to_f,
+	}
+
+	quantity.times do
+		session.push side_hash
+	end
+end
+
+def delete_pizza_ingredients(session, index_array)
+	index_array.reverse!
+	b = Array.new
+	which_pizza = Array.new
+	ingredient_to_remove = Array.new
+
+	index_array.each do |i|
+		b << i.split("@")
+	end
+
+	b.each do |i|
+		i[0] = i[0].to_i
+		i[1] = i[1].to_i
+		which_pizza << i[0]
+		ingredient_to_remove << i[1]
+	end
+	puts """
+
+
+
+
+
+
+	b = #{b}
+	which_pizza = #{which_pizza}
+	ingredient_to_remove = #{ingredient_to_remove}
+
+
+
+
+
+
+	"""
+	b.length.times do |x|
+		session[which_pizza[x]]["ingredients"].delete_at(ingredient_to_remove[x])
+	end
+end
+
+def delete_sides(session, index_array)
+	index_array.reverse!
+
+	index_array.each do |i|
+		session.delete_at(i.to_i)
+	end
+end
+
 def convert_input(params) #converts the meats input into a usable array.
 	converted = []
 	if params[0].include?("none")
