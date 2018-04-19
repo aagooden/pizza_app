@@ -7,18 +7,24 @@
 
     <h3>Salads</h3>
     <form method="post" action="/on-to-wings">
-	    <% salad.each do |key, value| %>
-			<div>
-	      <input type="radio" name="salad" value='<%= key %>, <%= value %>' required>
-				<%= "$#{value} #{key}" %>
-	        <% if key == "none" %>
-            You don't want any of this
-          <% else %>
-          	<img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
-	        <% end %>
-	    <% end %>
-		</div>
-		Quantity: <input type="number" min="0" name="quantity">
+			<table>
+				<% salad.each do |key, value| %>
+					<tr>
+						<td>
+							<input type="radio" name="salad" value='<%= key %>, <%= value %>' required>
+							<%= "$#{value} #{key}" %>
+						</td>
+						<td>
+				      <% if key == "none" %>
+								You don't want any
+				      <% else %>
+				      	<img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
+			      	<% end %>
+						</td>
+					</tr>
+				<% end %>
+			</table>
+		Quantity: <input type="number" required min="0" name="quantity">
         <br><br>
     <input type="submit" value="Next to Wings">
     </form>

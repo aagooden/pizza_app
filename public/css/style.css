@@ -15,14 +15,19 @@ input[type="radio"] {
 	transform: scale(1.4);
 }
 
-img {
+td {
+	height:70px;
+	padding: 5px;
+}
+
+td img {
 	border: 0;
-	width: 8%;
-	height: 8%;
+	height: 70%;
 	float: center;
 	background-color: #000000;
 	margin-top: 0rem;
 }
+
 
 .topnav a {
  	background-color: #000000;

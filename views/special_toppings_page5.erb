@@ -7,18 +7,23 @@
 
     <h3>Special Toppings</h3>
     <form method="post" action="/on-to-sauces">
-    	<% special_toppings.each do |key, value| %>
-			<div>
-	   		<input type="radio" name="special_toppings" value='<%= key %>, <%= value %>' required>
-				<%= "$#{value} #{key}" %>
-                    <% if key == "none" %>
-                        You don't want any
-                    <% else %>
-                        <img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
-                    <% end %>
-                </div>
-        <br>
-	    <% end %>
+			<table>
+				<% special_toppings.each do |key, value| %>
+					<tr>
+						<td>
+							<input type="radio" name="special_toppings" value='<%= key %>, <%= value %>' required>
+							<%= "$#{value} #{key}" %>
+						</td>
+						<td>
+				      <% if key == "none" %>
+								You don't want any
+				      <% else %>
+				      	<img src="/img/<%=key.downcase.gsub(" ", "_")%>.jpg">
+			      	<% end %>
+						</td>
+					</tr>
+				<% end %>
+			</table>
     	<br><br>
     <input type="submit" value="Next to the sauces">
     </form>
