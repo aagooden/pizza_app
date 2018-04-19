@@ -20,11 +20,6 @@ get '/size' do
 	erb :pizza_size_page1
 end
 
-post '/back-to-size' do
-	session[:pizza]['crust'] = Hash.new
-	redirect '/size'
-end
-
 post '/on-to-crust' do
 	convert_pizza(params[:selection], session[:pizza])
 	redirect '/crust'
@@ -32,11 +27,6 @@ end
 
 get '/crust' do
 	erb :pizza_crust_page2
-end
-
-post '/back-to-crust' do
-	session[:pizza].pop
-	redirect '/crust'
 end
 
 post '/on-to-meats' do
@@ -48,11 +38,6 @@ get '/meats' do
 	erb :meats_page3
 end
 
-post '/back-to-meats' do
-	session[:pizza].pop
-	redirect '/meats'
-end
-
 post '/on-to-veggies' do
 	convert_pizza(params[:selection], session[:pizza])
 	redirect '/veggies'
@@ -60,11 +45,6 @@ end
 
 get '/veggies' do
 	erb :veggies_page4
-end
-
-post '/back-to-veggies' do
-	session[:pizza].pop
-	redirect '/veggies'
 end
 
 post '/on-to-special-toppings' do
@@ -76,11 +56,6 @@ get '/special-toppings' do
 	erb :special_toppings_page5
 end
 
-post '/back-to-special-toppings' do
-	session[:pizza].pop
-	redirect '/special-toppings'
-end
-
 post '/on-to-sauces' do
 	convert_pizza(params[:selection], session[:pizza])
 	redirect '/sauces'
@@ -88,11 +63,6 @@ end
 
 get '/sauces' do
 	erb :sauces_page6
-end
-
-post '/back-to-sauces' do
-	session[:pizza].pop
-	redirect '/sauces'
 end
 
 post '/on-to-extra-toppings' do
@@ -119,11 +89,6 @@ get '/salad' do
 	erb :salad_page8
 end
 
-post '/back-to-salad' do
-	session[:pizza].pop
-	redirect '/salad'
-end
-
 post '/on-to-wings' do
 	convert_sides(params[:selection], session[:current_order], params[:quantity].to_i)
 
@@ -132,11 +97,6 @@ end
 
 get '/wings' do
 	erb :wings_page9
-end
-
-post '/back-to-wings' do
-	session[:pizza].pop
-	redirect '/wings'
 end
 
 post '/on-to-drinks' do
